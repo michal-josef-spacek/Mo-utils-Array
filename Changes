@@ -1,2 +1,3 @@
 0.01
+ - Finish testing of check_array().
  - First version. Copy check subroutines from Mo::utils.
