@@ -1,7 +1,8 @@
 TODO
 ====
-1. Move checks from Mo::utils to this module. And rewrite to use of this module.
 2.
 
 Applied
 =======
+1. Move checks from Mo::utils to this module. And rewrite to use of this module.
+OK [20250730] skim
