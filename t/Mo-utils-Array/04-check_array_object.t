@@ -5,7 +5,7 @@ use English;
 use Error::Pure::Utils qw(clean err_msg_hr);
 use Mo::utils::Array qw(check_array_object);
 use Test::MockObject;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 12;
 use Test::NoWarnings;
 
 # Test.
@@ -51,6 +51,19 @@ is($EVAL_ERROR, "Parameter 'key' with array must contain 'Bar' objects.\n",
 	"Parameter 'key' with array must contain 'Bar' objects (Foo object).");
 $err_msg_hr = err_msg_hr();
 is($err_msg_hr->{'Reference'}, 'Foo', 'Test error parameter (Reference: Foo).');
+clean();
+
+# Test.
+$self = {
+	'key' => [[]],
+};
+eval {
+	check_array_object($self, 'key', 'Bar');
+};
+is($EVAL_ERROR, "Parameter 'key' with array must contain 'Bar' objects.\n",
+	"Parameter 'key' with array must contain 'Bar' objects (reference to array).");
+$err_msg_hr = err_msg_hr();
+is($err_msg_hr->{'Reference'}, 'ARRAY', 'Test error parameter (Reference: ARRAY).');
 clean();
 
 # Test.

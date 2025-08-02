@@ -1,6 +1,5 @@
 TODO
 ====
-2. Test coverage of check_array_object()
 4. Move _check_object to Mo::utils::common.
 5.
 
@@ -10,4 +9,7 @@ Applied
 OK [20250730] skim
 
 3. Error for check_array_object isn't fine.
+OK [20250802] skim
+
+2. Test coverage of check_array_object()
 OK [20250802] skim
