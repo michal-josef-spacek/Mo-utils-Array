@@ -1,7 +1,8 @@
 TODO
 ====
 2. Test coverage of check_array_object()
-4.
+4. Move _check_object to Mo::utils::common.
+5.
 
 Applied
 =======
