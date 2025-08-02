@@ -5,7 +5,7 @@ SYNOPSIS
      use Mo::utils::Array qw(check_array check_array_object check_array_required);
 
      check_array($self, $key);
-     check_array_object($self, $key, $class, $class_name);
+     check_array_object($self, $key, $class);
      check_array_required($self, $key);
 
 DESCRIPTION
@@ -24,13 +24,12 @@ SUBROUTINES
     Returns undef.
 
   "check_array_object"
-     check_array_object($self, $key, $class, $class_name);
+     check_array_object($self, $key, $class);
 
     *Since version 0.01.*
 
     Check parameter defined by $key which is reference to array with
-    instances of some object type ($class). $class_name is used to error
-    message.
+    instances of some object type ($class).
 
     Put error if check isn't ok.
 
@@ -58,7 +57,7 @@ ERRORS
              Parameter '%s' must be a array.
                      Value: %s
                      Reference: %s
-             %s isn't '%s' object.
+             Parameter '%s' with array must contain '%s' objects.
                      Value: %s
                      Reference: %s
 
@@ -118,7 +117,7 @@ EXAMPLE3
                      Test::MockObject->new,
              ],
      };
-     check_array_object($self, 'key', 'Test::MockObject', 'Value');
+     check_array_object($self, 'key', 'Test::MockObject');
 
      # Print out.
      print "ok\n";
@@ -140,13 +139,13 @@ EXAMPLE4
                      'foo',
              ],
      };
-     check_array_object($self, 'key', 'Test::MockObject', 'Value');
+     check_array_object($self, 'key', 'Test::MockObject');
 
      # Print out.
      print "ok\n";
 
      # Output like:
-     # #Error [..Array.pm:?] Value isn't 'Test::MockObject' object.
+     # #Error [..Array.pm:?] Parameter 'key' with array must contain 'Test::MockObject' objects.
 
 EXAMPLE5
      use strict;

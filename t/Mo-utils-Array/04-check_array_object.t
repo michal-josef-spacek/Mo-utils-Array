@@ -13,7 +13,7 @@ my $self = {
 	'key' => 'foo',
 };
 eval {
-	check_array_object($self, 'key', 'Foo', 'Foo');
+	check_array_object($self, 'key', 'Foo');
 };
 is($EVAL_ERROR, "Parameter 'key' must be a array.\n",
 	"Parameter 'key' must be a array.");
@@ -27,10 +27,10 @@ $self = {
 	'key' => ['foo'],
 };
 eval {
-	check_array_object($self, 'key', 'Foo', 'Foo');
+	check_array_object($self, 'key', 'Foo');
 };
-is($EVAL_ERROR, "Foo isn't 'Foo' object.\n",
-	"Foo isn't 'Foo' object.");
+is($EVAL_ERROR, "Parameter 'key' with array must contain 'Foo' objects.\n",
+	"Parameter 'key' with array must contain 'Foo' objects (foo).");
 $err_msg_hr = err_msg_hr();
 is($err_msg_hr->{'Value'}, 'foo', 'Test error parameter (Value: foo).');
 clean();
@@ -45,10 +45,10 @@ $self = {
 	'key' => [$foo],
 };
 eval {
-	check_array_object($self, 'key', 'Bar', 'Bar');
+	check_array_object($self, 'key', 'Bar');
 };
-is($EVAL_ERROR, "Bar isn't 'Bar' object.\n",
-	"Bar isn't 'Bar' object.");
+is($EVAL_ERROR, "Parameter 'key' with array must contain 'Bar' objects.\n",
+	"Parameter 'key' with array must contain 'Bar' objects (Foo object).");
 $err_msg_hr = err_msg_hr();
 is($err_msg_hr->{'Reference'}, 'Foo', 'Test error parameter (Reference: Foo).');
 clean();
@@ -62,10 +62,10 @@ $foo = Foo->new;
 $self = {
 	'key' => [$foo],
 };
-my $ret = check_array_object($self, 'key', 'Foo', 'Foo');
+my $ret = check_array_object($self, 'key', 'Foo');
 is($ret, undef, 'Right structure.');
 
 # Test.
 $self = {};
-$ret = check_array_object($self, 'key', 'Foo', 'Foo');
+$ret = check_array_object($self, 'key', 'Foo');
 is($ret, undef, 'Right not exist key.');

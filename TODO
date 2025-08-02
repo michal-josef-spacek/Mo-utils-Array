@@ -1,10 +1,12 @@
 TODO
 ====
 2. Test coverage of check_array_object()
-3. Error for check_array_object isn't fine.
 4.
 
 Applied
 =======
 1. Move checks from Mo::utils to this module. And rewrite to use of this module.
 OK [20250730] skim
+
+3. Error for check_array_object isn't fine.
+OK [20250802] skim

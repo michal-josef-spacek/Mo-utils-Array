@@ -32,7 +32,7 @@ sub check_array {
 }
 
 sub check_array_object {
-	my ($self, $key, $class, $class_name) = @_;
+	my ($self, $key, $class) = @_;
 
 	if (! exists $self->{$key}) {
 		return;
@@ -42,8 +42,8 @@ sub check_array_object {
 
 	foreach my $obj (@{$self->{$key}}) {
 		_check_object($obj, $class,
-			'%s isn\'t \'%s\' object.',
-			[$class_name, $class],
+			"Parameter '%s' with array must contain '%s' objects.",
+			[$key, $class],
 		);
 	}
 
@@ -112,7 +112,7 @@ Mo::utils::Array - Mo array utilities.
  use Mo::utils::Array qw(check_array check_array_object check_array_required);
 
  check_array($self, $key);
- check_array_object($self, $key, $class, $class_name);
+ check_array_object($self, $key, $class);
  check_array_required($self, $key);
 
 =head1 DESCRIPTION
@@ -135,12 +135,12 @@ Returns undef.
 
 =head2 C<check_array_object>
 
- check_array_object($self, $key, $class, $class_name);
+ check_array_object($self, $key, $class);
 
 I<Since version 0.01.>
 
 Check parameter defined by C<$key> which is reference to array with instances
-of some object type (C<$class>). C<$class_name> is used to error message.
+of some object type (C<$class>).
 
 Put error if check isn't ok.
 
@@ -170,7 +170,7 @@ Returns undef.
          Parameter '%s' must be a array.
                  Value: %s
                  Reference: %s
-         %s isn't '%s' object.
+         Parameter '%s' with array must contain '%s' objects.
                  Value: %s
                  Reference: %s
 
@@ -239,7 +239,7 @@ Returns undef.
                  Test::MockObject->new,
          ],
  };
- check_array_object($self, 'key', 'Test::MockObject', 'Value');
+ check_array_object($self, 'key', 'Test::MockObject');
 
  # Print out.
  print "ok\n";
@@ -264,13 +264,13 @@ Returns undef.
                  'foo',
          ],
  };
- check_array_object($self, 'key', 'Test::MockObject', 'Value');
+ check_array_object($self, 'key', 'Test::MockObject');
 
  # Print out.
  print "ok\n";
 
  # Output like:
- # #Error [..Array.pm:?] Value isn't 'Test::MockObject' object.
+ # #Error [..Array.pm:?] Parameter 'key' with array must contain 'Test::MockObject' objects.
 
 =head1 EXAMPLE5
 
