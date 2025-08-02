@@ -1,5 +1,11 @@
 Array.pm
 Changes
+examples/check_array_fail.pl
+examples/check_array_object_fail.pl
+examples/check_array_object_ok.pl
+examples/check_array_ok.pl
+examples/check_array_required_fail.pl
+examples/check_array_required_ok.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm
