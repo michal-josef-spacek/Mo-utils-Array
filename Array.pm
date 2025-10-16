@@ -12,7 +12,7 @@ use Scalar::Util qw(blessed);
 Readonly::Array our @EXPORT_OK => qw(check_array check_array_object
 	check_array_required check_array_strings);
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub check_array {
 	my ($self, $key) = @_;
@@ -477,6 +477,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut
