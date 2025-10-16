@@ -1,7 +1,8 @@
 TODO
 ====
 4. Move _check_object to Mo::utils::common.
-5.
+5. Add check for array with some list of strings defined in reference array.
+6.
 
 Applied
 =======
