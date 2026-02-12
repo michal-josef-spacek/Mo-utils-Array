@@ -1,7 +1,8 @@
 TODO
 ====
 4. Move _check_object to Mo::utils::common.
-6.
+6. Add check for count array members.
+7.
 
 Applied
 =======
