@@ -1,4 +1,5 @@
 0.03
+ - Add check_array_items() check.
  - Update copyright years.
 
 0.02 2025-10-17T00:48:39+02:00

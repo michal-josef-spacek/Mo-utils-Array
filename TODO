@@ -1,7 +1,6 @@
 TODO
 ====
 4. Move _check_object to Mo::utils::common.
-6. Add check for count array members.
 7.
 
 Applied
@@ -17,3 +16,6 @@ OK [20250802] skim
 
 5. Add check for array with some list of strings defined in reference array.
 OK [20251016] skim
+
+6. Add check for count array members.
+OK [20260219] skim
