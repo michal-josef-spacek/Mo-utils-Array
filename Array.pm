@@ -6,6 +6,7 @@ use warnings;
 
 use Error::Pure qw(err);
 use List::Util 1.33 qw(none);
+use Mo::utils::common qw(check_object);
 use Readonly;
 use Scalar::Util qw(blessed);
 
@@ -61,7 +62,7 @@ sub check_array_object {
 	check_array($self, $key);
 
 	foreach my $obj (@{$self->{$key}}) {
-		_check_object($obj, $class,
+		check_object($obj, $class,
 			"Parameter '%s' with array must contain '%s' objects.",
 			[$key, $class],
 		);
@@ -115,36 +116,6 @@ sub check_array_strings {
 				'Possible strings', "'".(join "', '", @{$strings_ar})."'",
 			;
 		}
-	}
-
-	return;
-}
-
-
-# XXX Move to common utils.
-sub _check_object {
-	my ($value, $class, $message, $message_params_ar) = @_;
-
-	if (! blessed($value)) {
-		my $err_message = sprintf $message, @{$message_params_ar};
-		err $err_message,
-
-			# Only, if value is scalar.
-			(ref $value eq '') ? (
-				'Value', $value,
-			) : (),
-
-			# Only if value is reference.
-			(ref $value ne '') ? (
-				'Reference', (ref $value),
-			) : (),
-	}
-
-	if (! $value->isa($class)) {
-		my $err_message = sprintf $message, @{$message_params_ar};
-		err $err_message,
-			'Reference', (ref $value),
-		;
 	}
 
 	return;
@@ -510,6 +481,7 @@ Returns undef.
 L<Exporter>,
 L<Error::Pure>,
 L<List::Util>,
+L<Mo::utils::commons>,
 L<Readonly>,
 L<Scalar::Util>.
 
