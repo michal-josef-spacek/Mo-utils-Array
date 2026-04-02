@@ -142,7 +142,7 @@ Mo::utils::Array - Mo array utilities.
 
 =head1 DESCRIPTION
 
-Mo array utilities for checking of data objects.
+Mo utilities for checking of data objects which are array.
 
 =head1 SUBROUTINES
 
