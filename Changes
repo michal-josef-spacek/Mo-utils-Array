@@ -1,4 +1,8 @@
 0.05
+ - API change: Rewrite check_array_strings() to version without possible
+   strings. The result are two use cases (one without possible strings,
+   second one with possible strings). Remove one error for case of required
+   reference to array with possible strings.
 
 0.04 2026-02-21T17:24:04+01:00
  - Move check_object() to Mo::utils::common.
