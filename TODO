@@ -1,7 +1,8 @@
 TODO
 ====
 7. Add common check for item type (SCALAR, GLOB, ARRAY, HASH etc).
-8.
+8. Improve check_array_required() for number of required values.
+9.
 
 Applied
 =======
